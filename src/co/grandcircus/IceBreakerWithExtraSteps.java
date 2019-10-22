@@ -64,7 +64,7 @@ public class IceBreakerWithExtraSteps {
 			
 			System.out.println(studentInfo(students, numAns, ans));
 			
-			System.out.println("Again? (Y/N)");
+			System.out.println("Again? (y/n)");
 			ans = scan.nextLine();
 
 		}
