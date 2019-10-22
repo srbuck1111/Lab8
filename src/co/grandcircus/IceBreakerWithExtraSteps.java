@@ -1,6 +1,5 @@
 package co.grandcircus;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class IceBreakerWithExtraSteps {
@@ -36,36 +35,23 @@ public class IceBreakerWithExtraSteps {
 				
 			}
 			
-			System.out.print("Answer: ");
-			numAns = scan.nextInt();
+			numAns = Validator.getInt(scan , "Answer: " , 1 , students.length + 1);
 			
-			while (numAns > students.length || numAns <= 0) {
-				
-				System.out.print("That student is no longer in the corporeal plane. Please try again."
-						+ "\nEnter a number between 1 and " + students.length + ": ");
-				numAns = scan.nextInt();
-				
-			} 
+			System.out.println("Student " + numAns + " is " + students[numAns - 1][0] + ". What would you like to know about them?");
 			
-			scan.nextLine();
-			
-			System.out.println("Student " + numAns + " is " + students[numAns - 1][0] + ". What would you like to know about them?"
-					+ "\n(Favorite food or Hometown)");
-			
-			ans = scan.nextLine();
+			ans = Validator.getString(scan , "Favorite food or hometown: ");
 			
 			while (!ans.equalsIgnoreCase("favorite food") && !ans.equalsIgnoreCase("hometown")) {
 				
 				System.out.print("That student's " + ans + " has dematerialized. Please try again."
 						+ "\nEnter hometown or favorite food: ");
-				ans = scan.nextLine();
+				ans = Validator.getString(scan , "Favorite food or hometown: ");
 				
 			}
 			
 			System.out.println(studentInfo(students, numAns, ans));
 			
-			System.out.println("Again? (y/n)");
-			ans = scan.nextLine();
+			ans = Validator.getString(scan , "Again? (y/n)");
 
 		}
 
